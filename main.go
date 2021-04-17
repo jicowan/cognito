@@ -21,11 +21,11 @@ type credential struct {
 }
 
 const (
-	ClientId string = "re23i75fp5ln62p1vtssjrveo"
-	Region string = "us-west-2"
-	AccountId string = "0123456789012"
-	IdentityPoolId = "us-west-2:070eee28-81b9-3767-b400-b8be70facf40"
-	UserPoolId = "us-west-2_UXqM55clL"
+	ClientId string = "re23i75fp5ln62p1vtssjrveo" // Cognito app client ID
+	Region string = "us-west-2" // region where Cognito is being hosted
+	AccountId string = "0123456789012" // aws account ID
+	IdentityPoolId = "us-west-2:070eee28-81b9-3767-b400-b8be70facf40" // Federated ID pool ID
+	UserPoolId = "us-west-2_UXqM55clL" // Cognito user pool ID
 )
 func main() {
 	username := flag.String("u", "", "username")
