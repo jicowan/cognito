@@ -21,11 +21,11 @@ type credential struct {
 }
 
 const (
-	ClientId string = "re12i62fp5ln48p3vtssjrveo"
-	Region string = "us-east-2"
-	AccountId string = "820537372947"
-	IdentityPoolId = "us-east-2:070eee28-81b9-4878-b500-b9be89facf50"
-	UserPoolId = "us-east-2_UXqM66clL"
+	ClientId string = "re23i75fp5ln62p1vtssjrveo"
+	Region string = "us-west-2"
+	AccountId string = "0123456789012"
+	IdentityPoolId = "us-west-2:070eee28-81b9-3767-b400-b8be70facf40"
+	UserPoolId = "us-west-2_UXqM55clL"
 )
 func main() {
 	username := flag.String("u", "", "username")
@@ -46,7 +46,7 @@ func main() {
 		&cognitoidentity.GetIdInput{
 				AccountId: aws.String(AccountId),
 				IdentityPoolId: aws.String(IdentityPoolId),
-				Logins: map[string]*string{"cognito-idp.us-east-2.amazonaws.com/" + UserPoolId:authOutput.AuthenticationResult.IdToken},
+				Logins: map[string]*string{"cognito-idp.us-west-2.amazonaws.com/" + UserPoolId:authOutput.AuthenticationResult.IdToken},
 			},
 		)
 	if err != nil {
@@ -55,7 +55,7 @@ func main() {
 	cred, err := id.GetCredentialsForIdentity(
 		&cognitoidentity.GetCredentialsForIdentityInput{
 			IdentityId:    idOutput.IdentityId,
-			Logins: map[string]*string{"cognito-idp.us-east-2.amazonaws.com/" + UserPoolId:authOutput.AuthenticationResult.IdToken},
+			Logins: map[string]*string{"cognito-idp.us-west-2.amazonaws.com/" + UserPoolId:authOutput.AuthenticationResult.IdToken},
 		},
 	)
 	if err != nil {
